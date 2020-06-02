@@ -27,7 +27,7 @@ class App extends React.Component {
     event.preventDefault();
 
     this.setState({
-      user: this.userSearch,
+      user: this.state.userSearch,
     })
   }
 
