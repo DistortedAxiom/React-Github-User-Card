@@ -8,8 +8,7 @@ import './UserCard.css';
 const UserCard = (props) => {
     return (
         <div className="user-container">
-            <Col lg="8">
-            <Card>
+            <Card className="user-card">
                 <CardImg top width="100%" src={`${props.user.avatar_url}`} />
                     <CardBody>
                         <CardTitle>{props.user.name}</CardTitle>
@@ -19,7 +18,6 @@ const UserCard = (props) => {
                         <CardText>Following: {props.user.following}</CardText>
                     </CardBody>
             </Card>
-            </Col>
         </div>
     )
 }

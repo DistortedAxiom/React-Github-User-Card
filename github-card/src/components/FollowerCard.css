@@ -1,6 +1,20 @@
 .follower-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    color: black;
+    flex-wrap: wrap;
+}
+
+.follower-card {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     color: black;
+    box-sizing: border-box;
+    flex: 0 0 20%;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 1rem;
+    margin-top: 3rem;
 }
