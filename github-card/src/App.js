@@ -72,7 +72,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App-header">
           <SearchBar changeHandler={this.changeHandler} value={this.state.userSearch} handleSubmit={this.handleSubmit}/>
-          <UserCard user={this.state.user} />
+          <UserCard user={this.state.userdata} />
           <div>
             <h2>Followers</h2>
             <FollowerCard followers={this.state.followers} />
