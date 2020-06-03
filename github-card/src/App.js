@@ -12,30 +12,17 @@ class App extends React.Component {
     super();
     this.state = {
       user: 'DistortedAxiom',
+      userdata: {},
       followers: [],
       userSearch: '',
     }
-  }
-
-  changeHandler = (event) => {
-    this.setState({
-      userSearch: event.target.value
-    })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-
-    this.setState({
-      user: this.state.userSearch,
-    })
   }
 
   getUser() {
     axios.get(`https://api.github.com/users/${this.state.user}`)
     .then((res) => {
       this.setState({
-        user: res.data
+        userdata: res.data
       })
     })
     .catch((err) => {
@@ -52,22 +39,35 @@ class App extends React.Component {
     })
   }
 
+  changeHandler = (event) => {
+    event.preventDefault();
+    this.setState({
+      userSearch: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState({
+      user: this.state.userSearch,
+    })
+  }
+
   componentDidMount() {
     this.getUser();
     this.getFollowers();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if(prevState.user !== this.state.user) {
+    if(this.state.user !== prevState.user) {
+      console.log(this.state.user)
       this.getUser();
       this.getFollowers();
     }
   }
 
   render() {
-    console.log(this.state.user);
-    console.log(this.state.userSearch);
-    console.log(this.state.followers);
     return (
       <div className="App">
         <header className="App-header">
